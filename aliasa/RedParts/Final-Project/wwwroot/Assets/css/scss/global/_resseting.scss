@@ -1,0 +1,112 @@
+a{
+    text-decoration: none;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     
+}
+.container{
+    max-width: 1360px;
+    width: 90%;
+    margin: auto;
+}
+.my-container{
+    max-width: 1360px;
+    width: 80%;
+    margin: auto;
+}
+
+.my-second-container{
+    max-width: 1360px;
+    width: 70%;
+    margin: auto;
+}
+.bordered-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    .head-box{
+       h4{
+        font-size: 20px;
+       }
+    }
+
+    .slider-nav{
+        display: flex;
+        i{
+            width: 25px;
+            cursor: pointer;
+            height: 25px;
+            margin-left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #e52727;
+            
+           
+                color: #fff;
+            }
+        
+    }
+}
+
+.bottom-ico{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    .ico-box{
+        width: 30px;
+        height: 30px;
+        display: flex;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
+        align-items: center;
+        justify-content: center;
+        
+        i{
+            color: #fff;
+        }
+    }
+    .ins{
+        background-color:  #feda75;
+        margin-left: 0%;
+    }
+    .tw{
+        background-color: #00acee ;
+    }
+    .yt{
+        background-color: #FF0000;
+    }
+    .fb{
+       background-color:  #3b5998;
+    }
+    
+}
+
+.product-rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    margin-top: 20px;
+    text-align: end;
+   
+}
+.product-rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.2em;
+    cursor: pointer;
+ }
+.product-rating > span:hover:before,
+.product-rating > span:hover ~ span:before {
+     content: "\2605";
+     position: absolute;
+ }

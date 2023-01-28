@@ -1,0 +1,70 @@
+﻿@model BlogCreateVM
+
+
+<div class="main-panel container">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-description">
+                            Blog
+                        </p>
+                        <form asp-controller="Blog" asp-action="Create" class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Title</label>
+                                <input  type="text" class="form-control" asp-for="Title">
+                                <span class="text-danger my-1" asp-validation-for="Title"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Intro</label>
+                                <input  type="text" class="form-control" asp-for="Intro">
+                                <span class="text-danger my-1" asp-validation-for="Intro"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Content</label>
+                                <input type="text" class="form-control" asp-for="Content">
+                                <span class="text-danger my-1" asp-validation-for="Content"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="BlogCategoryId">Categories</label>
+                                <select class="form-control" asp-for="BlogCategoryId" asp-items="@ViewBag.categories"></select>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" asp-for="Photo">
+                                <span class="text-danger" asp-validation-for="Photo"></span>
+                            </div>
+                            <div class="form-group">
+                                @if (Model.Tag != null)
+                                {
+                                    @for (int i = 0; i < Model.Tag.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <label>@Model.Tag[i].Name</label>
+                                                <input type="hidden" asp-for="@Model.Tag[i].Name"/>
+                                                <input type="hidden" asp-for="@Model.Tag[i]"/>
+                                                <input type="checkbox" asp-for="@Model.Tag[i].IsSelected"/>
+                                                <input type="hidden" asp-for="@Model.Tag[i].Id"/>
+                                            </td>
+                                        </tr>   
+                                    }
+                                }
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a asp-controller="Blog" asp-action="Index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+
+
+}
+
+

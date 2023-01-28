@@ -1,0 +1,86 @@
+#wish-list{
+    .all-wish-list{
+        .wish-main{
+            .wish-down{
+                margin-top: 50px;
+                display: flex;
+                justify-content: space-between;
+                .coupon-box{
+                    width: 50%;
+                    .coupon-head{
+                        h3{
+                            font-size: 36px;
+                            color: #333333;
+                        }
+                    }
+
+                    .coupon-main{
+                        margin-top: 20px;
+                        input{
+                            width: 60%;
+                            outline: none;
+                            border: 1px solid rgb(231, 228, 228);
+                            padding: 15px 10px;
+                            background-color: #fff;
+                        }
+                        button{
+                            color: #fff;
+                            background-color: green;
+                            padding: 16px 10px;
+                            border: none;
+                            width: 100px;
+                            cursor: pointer;
+                            border-radius: 8px;
+                        }
+                    }
+                }
+
+                .total-box{
+                     width: 50%;
+                     border: 1px solid rgb(231, 228, 228);
+                     padding:15px;
+                    .total-head{
+                        h3{
+                            font-size: 36px;
+                            color: #333333;
+                        }
+                    }
+                    .total-main{
+                        margin-top: 20px;
+                        ul{
+                            list-style: none;
+                            width: 100%;
+                            li{
+                                display: flex;
+                                
+                                border: 1px solid rgb(231, 228, 228);
+                                span{
+                                    width: 50%;
+                                    overflow-wrap:break-word;
+                                    padding: 15px;
+                                    &:last-child{
+                                        border-left: 1px solid rgb(231, 228, 228) ;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                    .total-btn{
+                        margin-top: 30px;
+                        button{
+                            color: #fff;
+                            background-color: green;
+                            padding: 16px 10px;
+                            border: none;
+                            width: 40%;
+                            cursor: pointer;
+                            border-radius: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

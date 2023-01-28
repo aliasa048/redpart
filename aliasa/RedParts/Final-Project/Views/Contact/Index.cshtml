@@ -1,0 +1,78 @@
+﻿<section id="contact-page">
+    <div class="container">
+        <div class="all-contact-page">
+            <div class="contact-head">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-main">
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d382.5273983362306!2d49.94673018583865!3d40.404361613573066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40306303fa0ce97d%3A0x2d595bd74967ce5!2zQ1czVytQUjMsIEJha8SxLCDQkNC30LXRgNCx0LDQudC00LbQsNC9!5e0!3m2!1sru!2s!4v1672731757730!5m2!1sru!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-text">
+                    <div class="text-left">
+                        <div class="bordered-head">
+                            <div class="head-box">
+                                <h4>Our Address</h4>
+                            </div>
+                        </div>
+                        <div class="text-main">
+                            <p>
+                                715 Fake Ave, Apt. 34, New York, NY 10021 USA
+                                Email Address red parts@example.com
+                                Phone number +1 (800) 060-07-30
+                            </p>
+                            <div class="open-box">
+                                <h5>Opening Hours</h5>
+                                <ul>
+                                    <li>Monday to Friday: 8am-8pm</li>
+                                    <li>Saturday: 8am-6pm</li>
+                                    <li>Sunday: 10am-4pm</li>
+                                </ul>
+                            </div>
+                            <div class="comment-box">
+                                <h5>Comment</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit suscipit mi, non tempor nulla finibus eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="bordered-head">
+                            <div class="head-box">
+                                <h4>Leave us a Message</h4>
+                            </div>
+                        </div>
+
+                        <div class="right-main">
+                            <form asp-controller="Contact" asp-action="ContactUs" method="post" class="contact-form">
+                                <label for="name">Your Name</label>
+                                <input name="Name" type="text" id="name" placeholder="Your Name" required>
+
+                                <label for="email">Email Address</label>
+                                <input name="Email" type="email" id="email" placeholder="Email Address" required>
+
+                                <label for="sub">Subject</label>
+                                <input name="Subject"  type="text" id="sub" placeholder="Subject" required>
+
+                                <label for="mes">Message</label>
+                                <textarea name="Message"  id="mes" required></textarea>
+
+                                <button class="contact-btn" type="submit">fds</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-btn {
+        background-color: #e52727;
+        padding: 15px 40px;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+    }
+</style>

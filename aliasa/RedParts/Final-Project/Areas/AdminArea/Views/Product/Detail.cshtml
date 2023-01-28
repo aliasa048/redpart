@@ -1,0 +1,89 @@
+﻿@model ProductDetailVM
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header">
+            <h2>Product detail</h2>
+        </div>
+        <div class="d-flex">
+            @foreach (var item in Model.Images)
+            {
+
+                <div class="blog-post-item " style="margin-right:10px;">
+                    <div class="blog-thumb " style="width:150px" ;>
+                        <img src="~/assets/img/Product/@item.Image">
+                    </div>
+                </div>
+            }
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Brand
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th>
+                        Stock
+                    </th>
+                    <th>
+                        Selled
+                    </th>
+                    <th>
+                        Material
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model.Title
+                    </td>
+                    <td>
+                        @Model.Description
+                    </td>
+                    <td>
+                        @Model.Price
+                    </td>
+                    <td>
+                        @Model.Brand
+                    </td>
+                    <td>
+                        @Model.Category
+                    </td>
+                    <td>
+                        @Model.StockCount
+                    </td>
+                    <td>
+                        @Model.SellingCount
+                    </td>
+                    <td>
+                        @foreach (var item in Model.Materials)
+                        {
+                            <span>@item.Name</span>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <a asp-action="Index" class="mybutton">Back</a>
+
+</div>
+

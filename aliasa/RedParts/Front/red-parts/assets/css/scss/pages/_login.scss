@@ -1,0 +1,114 @@
+#login{
+    padding-top: 50px;
+   
+        .all-login{
+            padding-bottom: 50px;
+            
+            .side-head{
+                text-align: center;
+                margin-top: 30px;
+                h4{
+                    font-size: 16px;
+                    color: #333333;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+                p{
+                    font-size: 14px;
+                    color: #333333;
+                    margin-top: 10px;
+                }
+            }
+            
+                
+                    input{
+                        width: 100%;
+                        padding: 10px;
+                        border: 1px solid #333333;
+                        height: 50px;
+                        margin-top: 15px;
+                        opacity: 0.5;
+                    }
+
+                    label{
+                        display: inline-block;
+                        margin-top: 20px;
+                        font-size: 14px;
+                        color: #767676;
+                    }
+
+                    .sign{
+                        display:flex;
+                        cursor: pointer;
+                        width: 40%;
+                        margin: auto;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 14px;
+                        font-weight: 600;
+                        
+                        height: 60px;
+                        background-color:#333333;
+                        color: #fff;
+                        text-transform: uppercase;
+                        margin-top: 50px;
+
+                    }
+                    .forgot{
+                        display: inline-block;
+                        margin-top: 15px;
+                        color: #333333;
+                    }
+
+                    .check-input{
+                        display: block;
+                        margin-top: 20px;
+                        .check{
+                            width:fit-content;
+                            margin: 0%;
+                            height: fit-content;
+                            opacity: 1;
+                         }  
+                         .check-label{
+                           margin: 0%;
+                         }
+                    }
+                    .show-pass{
+                        display: block;
+                        margin-top: 20px;
+                        input{
+                            width:fit-content;
+                            margin: 0%;
+                            height: fit-content;
+                            opacity: 1;
+                         }  
+                         label{
+                           margin: 0%;
+                         }
+                      }
+                
+            
+           
+               
+                    .create{
+                        display:flex;
+                        cursor: pointer;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 14px;
+                        font-weight: 600;
+                        width: 40%;
+                        margin: auto;
+                        height: 60px;
+                        background-color: #333333;
+                        color: #fff;
+                        text-transform: uppercase;
+                        margin-top: 50px;
+
+                    }
+                
+            
+        }
+    
+    
+}

@@ -1,0 +1,62 @@
+﻿@model AboutVM
+
+<section id="about-first">
+
+    <div class="all-about-first">
+        <div class="about-img">
+            <img src="assets/media/about-1903x1903 (1).jpg" alt="">
+        </div>
+        <div class="about-box">
+            <div class="box-head">
+                <h2>About Us</h2>
+            </div>
+            <div class="box-main">
+                <p>RedParts is an international company with 30 years of history selling spare parts for cars, trucks and motorcycles. During our work we managed to create a unique service for the sale and delivery of spare parts around the world.</p>
+                <span>Ryan Ford, CEO RedParts</span>
+
+                <div class="box-img">
+                    <img src="assets/media/signature.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section id="professional">
+    <div class="my-second-container">
+        <div class="all-professional">
+            <div class="professional-head">
+                <h3>Professional Team</h3>
+                <p>
+                    Meet this is our professional team.
+                </p>
+            </div>
+
+            <div class="professional-main">
+                <div class="swiper pro-slider">
+                    <div class="swiper-wrapper">
+
+
+                        @foreach (var item in Model.Employees)
+                        {
+                            <div class="swiper-slide">
+                                <div class="pro-img">
+                                    <img src="~/Assets/Img/Employee/@item.Image" alt="team">
+                                </div>
+
+                                <div class="pro-text">
+                                    <h4>@item.FulLName</h4>
+                                    <p>@item.Position</p>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

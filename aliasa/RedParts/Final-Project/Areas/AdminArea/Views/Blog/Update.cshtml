@@ -1,0 +1,48 @@
+﻿@model BlogEditVM
+<div class="main-panel container">
+    <div class="content-wrapper">
+        <div class="row">
+            <span class="text-danger">@ViewBag.Message</span>
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-description">
+                            Product
+                        </p>
+                        <div class="my-3 images">
+                            <img src="~/assets/img/blog/@Model.Image" style="width:150px; height:150px" alt="Alternate Text" />
+                        </div>
+                        <form asp-controller="Blog" asp-action="Update" enctype="multipart/form-data" class="forms-sample" method="post">
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input class="form-control" asp-for="Title">
+                                <span asp-validation-for="Title" class="text-danger my-1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Intro">Intro</label>
+                                <input class="form-control" asp-for="Intro">
+                                <span asp-validation-for="Intro" class="text-danger my-1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Content">Content</label>
+                                <textarea type="text" min="0" step=".01" class="form-control" asp-for="Content"></textarea>
+                                <span asp-validation-for="Content" class="text-danger my-1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="BlogCategoryId">Categories</label>
+                                <select class="form-control" asp-for="BlogCategoryId" asp-items="@ViewBag.categories"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo">Photos</label>
+                                <input class="form-control" asp-for="Photo">
+                                <span asp-validation-for="Photo" class="text-danger my-1"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a asp-controller="Blog" asp-action="Index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

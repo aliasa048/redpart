@@ -1,0 +1,156 @@
+﻿@model Paginate<ShopVM>
+
+<section id="shop-page">
+    <div class="container">
+        <div class="all-shop-page">
+            <div class="shop-head">
+                <h2> Products</h2>
+            </div>
+
+            <div class="shop-page-main">
+                <div class="left-shop-page">
+                    <div class="bordered-head">
+                        <h3>Filters</h3>
+                    </div>
+
+                    <div class="left-main">
+                        <div class="categories-box filter-box">
+                            <div class="box-head">
+                                <button>
+                                    <h5>Brand</h5>
+                                    <i class="fa-solid fa-chevron-up up-ico"></i>
+                                </button>
+                            </div>
+
+
+                            <div class="box-main">
+                                <ul>
+
+                                    @foreach (var item in Model.Datas)
+                                    {
+                                        @foreach (var brand in item.Brands)
+                                        {
+                                            <li><a asp-controller="shop" asp-action="Index" asp-route-brandId="@brand.Id">@Html.Raw(brand.Name)</a></li>
+
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="categories-box filter-box">
+                            <div class="box-head">
+                                <button>
+                                    <h5>Category</h5>
+                                    <i class="fa-solid fa-chevron-up up-ico"></i>
+                                </button>
+                            </div>
+
+
+                            <div class="box-main">
+                                <ul>
+
+                                    @foreach (var item in Model.Datas)
+                                    {
+                                        @foreach (var category in item.ProductCategories)
+                                        {
+                                            <li><a asp-controller="shop" asp-action="Index" asp-route-catId="@category.Id">@Html.Raw(category.Name)</a></li>
+                                        }
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="categories-box filter-box">
+                            <div class="box-head">
+                                <button>
+                                    <h5>Made In</h5>
+                                    <i class="fa-solid fa-chevron-up up-ico"></i>
+                                </button>
+                            </div>
+
+
+                            <div class="box-main">
+                                <ul>
+                                    @foreach (var item in Model.Datas)
+                                    {
+                                        @foreach (var country in item.Countries)
+                                        {
+                                            <li><a asp-controller="shop" asp-action="Index" asp-route-caId="@country.Id">@Html.Raw(country.Name)</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="filter-button">
+                            <button type="button" class="filter">
+                                Filter
+                            </button>
+                            <button type="button" class="reset">
+                                Reset
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-shop-page">
+                    <div class="right-main">
+
+                        @foreach (var item in Model.Datas)
+                        {
+                            @foreach (var product in item.Products)
+                            {
+                        <div class="shop-box" cart-id="@product.Id">
+                            <input type="hidden" class="product-id" value="@product.Id" />
+                            <div class="heart-ico">
+                                <button><i class="fa-solid fa-heart"></i></button>
+                            </div>
+                            <a asp-controller="shopdetail" asp-action="index" asp-route-id="@product.Id">
+                                <div class="box-img">
+                                    <img src="~/Assets/Img/Product/@product.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="product">
+                                </div>
+                            </a>
+
+                            <div class="box-text">
+                                <div class="product-title">
+                                    <a href="shopdetail.html">@product.Name</a>
+                                </div>
+
+                                <div class="product-rating">
+                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                </div>
+
+                                <div class="product-bottom">
+                                    <div class="product-price">
+                                        <p>$@product.Price</p>
+                                    </div>
+
+                                    <div class="product-cart">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a cart-id="@product.Id" id="addToCart">
+                                                <i style="cursor: pointer !important;" class="fa-solid fa-cart-shopping"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Account" asp-action="Login" cart-id="@product.Id" id="addToCart">
+                                                <i style="cursor: pointer !important;" class="fa-solid fa-cart-shopping"></i>
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

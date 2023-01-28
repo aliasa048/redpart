@@ -1,0 +1,40 @@
+﻿@model LoginVM
+
+<section id="login">
+    <div class="my-second-container-1">
+        <div class="all-login">
+
+            <div class="side-head">
+                <h4>registered customers</h4>
+                <p>If you have an account, sign in with your email address.</p>
+                <div class="text-danger mb-2" asp-validation-summary="All" style="color: red;"></div>
+            </div>
+
+            <form  asp-action="Login" class="register-form" id="login-form" method="post" enctype="multipart/form-data">
+                <label for="mail">Email</label>
+                <input asp-for="UsernameOrEmail" type="email" id="mail" required>
+
+                <label for="password">Password</label>
+                <input asp-for="Password" type="password"  id="password" required>
+
+                <button class="sign">sign in</button>
+                <a asp-action="forgotpassword" class="forgot">Forgot Your Password?</a>
+            </form>
+
+
+
+
+
+
+
+            <div class="side-head">
+                <h4>create a account</h4>
+                <p>Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails.</p>
+            </div>
+
+            <a asp-action="register" class="create"> create a account</a>
+
+
+        </div>
+    </div>
+</section>

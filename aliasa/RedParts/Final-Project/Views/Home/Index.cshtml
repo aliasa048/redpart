@@ -1,0 +1,576 @@
+﻿@model HomeVM
+
+<section id="first-slider">
+    <div class="container">
+        <div class="all-first-slider">
+            <div class="swiper first-slider">
+                <div class="swiper-wrapper">
+
+                    @foreach (var item in Model.Sliders)
+                    {
+                        <div class="swiper-slide" style="background-image: url('Assets/img/Slider/@item.Image');">
+                            <div class="slider-text">
+                                <div class="offer">
+                                    <p>@item.Title</p>
+                                </div>
+                                <div class="slider-title">
+                                    <h2>@item.Header</h2>
+                                </div>
+                                <div class="slider-details">
+                                    <p>@item.Description</p>
+                                </div>
+
+                                <div class="shop-btn">
+                                    <a asp-controller="ShopDetail" asp-action="Index"><button type="button">Shop Now</button></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="brands">
+    <div class="container">
+        <div class="all-brands">
+            <ul>
+                @foreach (var item in Model.Brands)
+                {
+                    <li class="brand-box">
+                        <div class="img-box">
+                            <a asp-controller="shop" asp-action="Index" asp-route-brandId="@item.Id"><img src="~/assets/Img/Brand/@item.Image" alt=""></a>
+
+                        </div>
+                        <p>@Html.Raw(item.Name)</p>
+                    </li>
+                }
+            </ul>
+
+
+
+        </div>
+    </div>
+</section>
+
+<section id="categories">
+    <div class="container">
+        <div class="all-categories">
+            <div class="categories-head">
+                <h3>Popular Categories</h3>
+            </div>
+
+            <div class="categories-main">
+
+                @foreach (var item in Model.Categories)
+                {
+                    <div class="categories-box">
+                        <div class="box-img">
+                            <a asp-controller="shop" asp-action="Index" asp-route-catId="@item.Id"><img src="~/Assets/Img/ProductCategory/@item.Image" alt=""></a>
+                        </div>
+                        <div class="box-text">
+                            <a href="shop.html" class="title-link">@Html.Raw(item.Name)</a>
+                            <a href="shop.html" class="shop-link">Shop All</a>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="featured">
+    <div class="container">
+        <div class="all-featured">
+            <div class="bordered-head">
+                <div class="head-box">
+                    <h4>Featured Products</h4>
+                </div>
+
+                <div class="slider-nav">
+                    <i class="fa-solid fa-chevron-left prev-ico"></i>
+                    <i class="fa-solid fa-chevron-right next-ico"></i>
+                </div>
+            </div>
+
+            <div class="featured-main">
+                <div class="swiper featured-slider">
+                    <div class="swiper-wrapper">
+
+
+                        @foreach (var item in Model.LastProduct)
+                        {
+                            <div class="swiper-slide" cart-id="@item.Id">
+                                <input type="hidden" class="product-id" value="@item.Id" />
+                                <div class="heart-ico">
+                                    <button><i class="fa-solid fa-heart"></i></button>
+                                </div>
+                                <a asp-controller="ShopDetail" asp-action="Index" asp-route-id="@item.Id">
+                                    <div class="slider-img">
+                                        
+                                       <img src="~/Assets/Img/Product/@item.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="product">
+                                    </div>
+                                </a>
+
+                                <div class="slider-text">
+                                    <div class="product-title">
+                                        <a href="shopdetail.html">@item.Name</a>
+                                    </div>
+
+                                    <div class="product-rating">
+                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                    </div>
+
+                                    <div class="product-bottom">
+                                        <div class="product-price">
+                                            <p>$@item.Price</p>
+                                        </div>
+
+                                        <div class="product-cart">
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <a cart-id="@item.Id" id="addToCart">
+                                                    <i style="cursor: pointer !important;" class="fa-solid fa-cart-shopping"></i>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="Account" asp-action="Login" cart-id="@item.Id" id="addToCart">
+                                                    <i style="cursor: pointer !important;" class="fa-solid fa-cart-shopping"></i>
+                                                </a>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="attention">
+
+    <div class="all-attention">
+        <div class="attention-head">
+            <div class="head-text">
+                <h2>Attention! Deal Zone</h2>
+                <p>Hurry up! Discounts up to 70%</p>
+            </div>
+
+            <div class="head-nav">
+
+                <i class="fa-solid fa-chevron-left prev-ico-att"></i>
+                <div></div>
+                <i class="fa-solid fa-chevron-right next-ico-att"></i>
+
+            </div>
+        </div>
+
+        <div class="attention-main" style="background-image:url('assets/media/sale-1903x640.jpg');">
+            <div class="container">
+                <div class="swiper attention-slider">
+                    <div class="swiper-wrapper">
+
+
+                        @foreach (var item in Model.Product)
+                        {
+                        <div class="swiper-slide" cart-id="@item.Id">
+                            <input type="hidden" class="product-id" value="@item.Id" />
+                            <div class="heart-ico">
+                                <button><i class="fa-solid fa-heart"></i></button>
+                            </div>
+                            <a asp-controller="ShopDetail" asp-action="Index" asp-route-id="@item.Id">
+                                <div class="slider-img">
+                                    <img src="~/Assets/Img/Product/@item.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="product">
+                                </div>
+                            </a>
+
+                            <div class="slider-text">
+                                <div class="product-title">
+                                    <a href="shopdetail.html">@item.Name</a>
+                                </div>
+
+                                <div class="product-rating">
+                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                </div>
+
+                                <div class="product-bottom">
+                                    <div class="product-price">
+                                        <p>$@item.Price</p>
+                                    </div>
+
+                                    <div class="product-cart">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a style="cursor:pointer" cart-id="@item.Id" id="addToCart">
+                                                <i style="cursor: pointer !important;" class="fa-solid fa-cart-shopping"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Account" asp-action="Login"  cart-id="@item.Id" id="addToCart">
+                                                <i style="cursor: pointer !important;" class="fa-solid fa-cart-shopping"></i>
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        }
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="shop-box">
+    <div class="container">
+        <div class="all-boxes">
+
+            @foreach (var item in Model.Banners)
+            {
+                <div class="shop-box" style="background-image: url('Assets/img/Banner/@item.Image');">
+                    <div class="shop-text">
+                        <h3>@item.Title</h3>
+                        <p>
+                            @item.Description
+                        </p>
+                        <a href=""><button>Shop Now</button></a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+
+<section id="arrivals">
+    <div class="container">
+        <div class="all-arrivals">
+            <div class="bordered-head">
+                <div class="head-box">
+                    <h4>New arrivals</h4>
+                </div>
+
+                <div class="slider-nav">
+                    <i class="fa-solid fa-chevron-left prev-ico-arr"></i>
+                    <i class="fa-solid fa-chevron-right next-ico-arr"></i>
+                </div>
+            </div>
+
+
+            <div class="arrivals-main">
+                <div class="swiper arrivals-slider">
+                    <div class="swiper-wrapper">
+
+                        @foreach (var item in Model.Products)
+                        {
+                            <div class="swiper-slide">
+                                <a asp-controller="ShopDetail" asp-action="Index" asp-route-id="@item.Id">
+                                    <div class="slide-img">
+                                        <img src="~/Assets/Img/Product/@item.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                                    </div>
+                                </a>
+
+                                <div class="slide-text">
+                                    <a href="shopdetail.html">@Html.Raw(item.Name)</a>
+                                    <div class="arrival-rating">
+                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                    </div>
+                                    <p>$@item.Price</p>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="latest">
+    <div class="container">
+        <div class="all-latest">
+            <div class="bordered-head">
+                <div class="head-box">
+                    <h4>Latest News</h4>
+                </div>
+
+                <div class="slider-nav">
+                    <i class="fa-solid fa-chevron-left prev-ico-lat"></i>
+                    <i class="fa-solid fa-chevron-right next-ico-lat"></i>
+                </div>
+            </div>
+
+            <div class="latest-main">
+                <div class="swiper latest-slider">
+                    <div class="swiper-wrapper">
+
+                        @foreach (var item in Model.Blogs)
+                        {
+                            <div class="swiper-slide">
+                                <div class="slider-img">
+                                    <img src="~/Assets/Img/blog/@item.Image" alt="post">
+                                </div>
+                                <div class="slider-text">
+                                    <a href="blogdetail.html">@item.Title</a>
+                                    <p>By @item.Creator  on @item.CreateDate.ToString("MMMM dd")</p>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="list-cat">
+    <div class="container">
+        <div class="all-list-cat">
+            <div class="left-list list-cat">
+                <div class="bordered-head">
+                    <div class="head-box">
+                        <h4>Top Rated Products</h4>
+                    </div>
+
+
+                </div>
+
+                <div class="list-main">
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mid-list list-cat">
+                <div class="bordered-head">
+                    <div class="head-box">
+                        <h4>
+                            Special Offers
+                        </h4>
+                    </div>
+
+
+                </div>
+
+                <div class="list-main">
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="right-list list-cat">
+                <div class="bordered-head">
+                    <div class="head-box">
+                        <h4>Bestsellers</h4>
+                    </div>
+
+
+                </div>
+
+                <div class="list-main">
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="list-box">
+                        <div class="list-img">
+                            <img src="~/assets/media/product-3-500x500.d9d987356f81ac80dd5e997b2f64b4652.jpg" alt="">
+                        </div>
+                        <div class="list-text">
+                            <a href="shopdetail.html">Left Headlight Of Brandix Z54</a>
+                            <div class="cat-rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <div class="cat-price">
+                                <p>$349</p>
+                                <span>$415</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="bottom-ico">
+    <div class="my-container">
+        <div class="all-bottom-ico">
+
+
+            @foreach (var item in Model.Services)
+            {
+                <div class="main-box">
+                    <div class="ico-box">
+                        <i class="@item.Icon"></i>
+                    </div>
+                    <div class="box-text">
+                        <h5>@item.Title</h5>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,125 @@
+#about-first{
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 300px;
+    
+    .all-about-first{
+        position: relative;
+        .about-img{
+            width: 100%;
+            height: 300px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: brightness(0.5);
+            }
+        }
+
+
+       .about-box{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+       position: absolute;
+       top: 50%;
+       left: 20%;
+        padding:30px;
+        width: 350px;
+        background-color: #fff;
+        .box-head{
+            text-align: center;
+            h2{
+                font-size: 40px;
+                font-weight: 700;
+            }
+        }
+
+        .box-main{
+            margin-top: 50px;
+            text-align: center;
+           p{
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.75;
+           }
+           span{
+            color: #6c757d;
+            
+            font-size: 14px;
+           }
+
+           .box-img{
+            margin: auto;
+            margin-top: 50px;
+               width: 200px;
+               height: 50px;
+               img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+               }
+           }
+        }
+       }
+    }
+}
+
+
+#professional{
+    padding-bottom: 70px;
+    padding-top: 70px;
+    .all-professional{
+        .professional-head{
+          text-align: center;
+          h3{
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+          }
+          p{
+            font-size: 15px;
+            color: #6c757d;
+            margin-bottom: 35px;
+          }
+        }
+
+        .professional-main{
+            .swiper {
+                width: 100%;
+                padding: 15px;
+                .swiper-slide {
+                    text-align: center;
+                    
+                    font-size: 18px;
+                    background: #fff;
+                    
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    .pro-img{
+                        width: 100%;
+                        height:70%;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .pro-text{
+                        padding: 10px;
+                        h4{
+                            color: #262626;
+                            line-height: 1.5;
+                            font-weight: 400;
+                            font-size: 16px;
+                        }
+                        p{
+                            font-size: 14px;
+                            color: #6c757d;
+                        }
+                    }
+                  }
+            
+              }
+        
+             
+        }
+    }
+}

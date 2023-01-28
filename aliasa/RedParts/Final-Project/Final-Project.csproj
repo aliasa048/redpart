@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Final_Project</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20230116123608_updateProductsTable.cs" />
+    <Compile Remove="Migrations\20230116123608_updateProductsTable.Designer.cs" />
+    <Compile Remove="Migrations\20230116192619_CreateProductTable.cs" />
+    <Compile Remove="Migrations\20230116192619_CreateProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20230116202638_UpdateCountriessaaTableaa.cs" />
+    <Compile Remove="Migrations\20230116202638_UpdateCountriessaaTableaa.Designer.cs" />
+    <Compile Remove="Migrations\20230119203443_CreateAppUserTable.cs" />
+    <Compile Remove="Migrations\20230119203443_CreateAppUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20230119204019_CreateAppUserTable.cs" />
+    <Compile Remove="Migrations\20230119204019_CreateAppUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20230119204306_CreateAppUserTable.cs" />
+    <Compile Remove="Migrations\20230119204306_CreateAppUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20230119204949_CreateAppUserTable.cs" />
+    <Compile Remove="Migrations\20230119204949_CreateAppUserTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Assets\Img\Brand\" />
+    <Folder Include="wwwroot\Assets\Img\blog\" />
+    <Folder Include="wwwroot\Assets\Img\Banner\" />
+    <Folder Include="wwwroot\Assets\Img\Employee\" />
+    <Folder Include="wwwroot\Assets\Img\Slider\" />
+    <Folder Include="wwwroot\Assets\Img\service\" />
+    <Folder Include="wwwroot\Assets\Img\ProductCategory\" />
+    <Folder Include="wwwroot\Assets\Img\Product\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Assets\css\basket\basket.css.map" />
+    <None Include="wwwroot\Assets\css\basket\basket.scss" />
+    <None Include="wwwroot\Assets\js\basket\basket.js" />
+  </ItemGroup>
+
+</Project>

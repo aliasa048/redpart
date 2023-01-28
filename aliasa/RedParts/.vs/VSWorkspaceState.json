@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Final-Project",
+    "\\Final-Project\\Areas",
+    "\\Final-Project\\Areas\\AdminArea",
+    "\\Final-Project\\Areas\\AdminArea\\Views",
+    "\\Final-Project\\Areas\\AdminArea\\Views\\ProductCategory",
+    "\\Final-Project\\Controllers",
+    "\\Final-Project\\Views",
+    "\\Final-Project\\Views\\BlogDetail",
+    "\\Final-Project\\Views\\Contact",
+    "\\Final-Project\\Views\\Home"
+  ],
+  "SelectedNode": "\\Final-Project\\Views\\BlogDetail\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}

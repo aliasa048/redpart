@@ -1,0 +1,199 @@
+﻿@model BlogDetVM
+
+<section id="blog-detail">
+    <div class="blog-background">
+        <div class="blog-image-text">
+            <a href="blog.html">Latest News</a>
+            <h2>@Model.Title</h2>
+            <p><span>By @Model.Creator</span> <span>@Model.Createdate.ToString("MMMM dd")</span></p>
+        </div>
+
+
+        <div class="blog-image" style="background-image: url('@Url.Content("~/Assets/Img/blog/download.jpg")');">
+
+        </div>
+    </div>
+
+
+    <div class="blog-detail-main">
+        <div class="my-container">
+            <div class="all-blog-detail-main">
+                <div class="left-blog-detail">
+                    <div class="about-box blog-box">
+                        <div class="box-head">
+                            <h3>About Blog</h3>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero.</p>
+                        <div class="bottom-ico">
+                            <div class="ico-box ins">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div class="ico-box tw">
+                                <i class="fa-brands fa-twitter"></i>
+                            </div>
+                            <div class="ico-box yt">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                            <div class="ico-box fb">
+                                <i class="fa-brands fa-facebook"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="categories-box blog-box">
+                        <div class="box-head">
+                            <h3>Categories</h3>
+                        </div>
+                        <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a asp-controller="Blog" asp-action="Index" asp-route-id="@item.Id">@item.Name</a></li>
+
+                            }
+                        </ul>
+                    </div>
+
+
+                    <div class="latest-box blog-box">
+                        <div class="box-head">
+                            <h3>Latest Posts</h3>
+                        </div>
+
+                        <div class="latest-main">
+
+                            @foreach (var item in Model.RecentPosts)
+                            {
+                                <div class="post-box">
+                                    <div class="post-img">
+                                        <img src="~/Assets/Img/blog/@item.Image" alt="">
+                                    </div>
+
+                                    <div class="post-text">
+                                        <a asp-controller="BlogDetail" asp-action="Index" asp-route-catId="@item.Id">@item.Title</a>
+                                        <p>@item.CreateDate.ToString("MMMM dd")</p>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tags-box blog-box">
+                        <div class="box-head">
+                            <h3>Tags Cloud</h3>
+                        </div>
+
+                        <div class="tags-main">
+
+                            @foreach (var item in Model.AllTag)
+                            {
+                                <div class="tag-box">
+                                    <a >@item.Name</a>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="right-blog-detail">
+                    <div class="right-text">
+                        <div class="blog-d-image">
+                            <div class="img-box">
+                                <img src="~/Assets/Img/blog/@Model.Image" alt="detail">
+                            </div>
+                            <div class="img-text">
+                                <p>Nunc viverra, dui nec commodo dignissim, libero arcu.</p>
+                            </div>
+                        </div>
+
+
+                            @Model.Content
+
+                        <div class="tags-box blog-box">
+
+                            <div class="tags-main">
+                                <div class="tag-box">
+                                    <a href="blog.html">Philosophy</a>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="blog-review">
+                        <div class="comment-box">
+                            <div class="comment-author">
+                                <h4>Leonid</h4>
+                            </div>
+
+                            <div class="comment-content">
+                                <p>I'd like this one on my car</p>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="write-place">
+                            <h3>Write A Comment</h3>
+                            <div class="write-main">
+                                <form>
+                                    <div class="review-stars">
+                                        <div class="rating-head">
+                                            <h6>Review Stars</h6>
+                                        </div>
+                                        <div class="product-rating">
+                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-box">
+                                        <label for="name">Your Name</label>
+                                        <input type="text" id="name" placeholder="Your Name">
+                                    </div>
+
+
+                                    <div class="input-box">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" placeholder="Email Address">
+                                    </div>
+
+
+                                    <div class="textarea-box">
+                                        <label for="textarea">Your Review</label>
+                                        <textarea id="textarea"></textarea>
+                                    </div>
+
+
+
+                                </form>
+
+                            </div>
+
+                            <div class="write-btn">
+
+                                <button type="button">Post Comment</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>

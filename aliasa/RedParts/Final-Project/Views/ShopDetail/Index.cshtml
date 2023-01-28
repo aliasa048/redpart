@@ -1,0 +1,190 @@
+﻿@model ShopDetailVM
+
+<section id="shop-detail">
+    <div class="container">
+        <div class="all-shop-detail">
+            <div class="left-shop-detail">
+                <div class="left-product-box">
+                    <div class="product-slider">
+                        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                             class="swiper mySwiper2">
+                            <div class="swiper-wrapper">
+
+                                @foreach (var item in Model.ProductImages)
+                                {
+                                    <div class="swiper-slide">
+                                        <img src="~/Assets/Img/Product/@item.Image"/>
+                                    </div>
+                                }
+
+                            </div>
+
+                        </div>
+                        <div thumbsSlider="" class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                @foreach (var item in Model.ProductImages)
+                                {
+                                    <div class="swiper-slide">
+                                        <img src="~/Assets/Img/Product/@item.Image" />
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-text">
+                        <h3>@Model.Title</h3>
+
+                        <div class="product-rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+
+                        <p>@Model.Description</p>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+            <div class="right-shop-detail">
+                <div class="product-info">
+                    <div class="info-head">
+                        <div class="price-box">
+                            <p>$@Model.Price</p>
+                        </div>
+
+                        <div class="stock-box">
+                            <p>In Stock</p>
+                        </div>
+                    </div>
+
+                    <div class="info-main">
+                        <ul>
+                            <li><span>SKU</span>  <span>@Model.SKU</span></li>
+                            <li><span>Brand</span>  <span>@Html.Raw(Model.Brand)</span></li>
+                            <li><span>Country</span>  <span>@Html.Raw(Model.Country)</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-color">
+                    <div class="material css-box">
+                        <h4>Material</h4>
+                        <form>
+                            @foreach (var item in Model.Materials)
+                            {
+                                <div class="input-box">
+                                    <label for="@item.Name" class="product-label ">@item.Name</label>
+                                    <input type="radio" name="material" id="@item.Name">
+                                </div>
+                            }
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="product-count">
+                    <div class="count-div">
+                        <p class="minus">-</p>
+                        <p class="count">1</p>
+                        <p class="plus">+</p>
+                    </div>
+
+                    <div class="add-card">
+                        <a href="">add to card</a>
+                    </div>
+                </div>
+
+                <div class="product-tags">
+                    <a asp-controller="shop" asp-action="Index" asp-route-catId="@Model.CatId">
+                        @Html.Raw(Model.CategoryName)
+                    </a>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<section id="featured">
+    <div class="container">
+        <div class="all-featured">
+            <div class="bordered-head">
+                <div class="head-box">
+                    <h4>
+                        Related Products
+                    </h4>
+                </div>
+
+                <div class="slider-nav">
+                    <i class="fa-solid fa-chevron-left prev-ico"></i>
+                    <i class="fa-solid fa-chevron-right next-ico"></i>
+                </div>
+            </div>
+
+            <div class="featured-main">
+                <div class="swiper featured-slider">
+                    <div class="swiper-wrapper">
+
+
+                        @foreach (var item in Model.FeaturedProducts)
+                        {
+                            <div class="swiper-slide">
+
+                                <div class="heart-ico">
+                                    <button><i class="fa-solid fa-heart"></i></button>
+                                </div>
+                                <a asp-controller="ShopDetail" asp-action="Index" asp-route-id="@item.Id">
+                                    <div class="slider-img">
+                                        <img src="~/Assets/Img/Product/@item.ProductImage.FirstOrDefault(m=>m.IsMain)?.Image" alt="product">
+                                    </div>
+                                </a>
+
+                                <div class="slider-text">
+                                    <div class="product-title">
+                                        <a asp-controller="ShopDetail" asp-action="Index" asp-route-id="@item.Id">@item.Name</a>
+                                    </div>
+
+                                    <div class="product-rating">
+                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                    </div>
+
+                                    <div class="product-bottom">
+                                        <div class="product-price">
+                                            <p>$@item.Price</p>
+                                        </div>
+
+                                        <div class="product-cart">
+                                            <a href="card.html">
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+﻿@model RegisterVM
+
+<section id="login">
+    <div class="my-second-container-1">
+        <div class="all-login">
+
+            <div class="side-head">
+                <h4>personal information</h4>
+                <div class="text-danger mb-2" asp-validation-summary="All"></div>
+
+            </div>
+
+            <form asp-controller="Account" asp-action="Register" method="post" enctype="multipart/form-data">
+
+
+                <label for="last-name">Full name</label>
+                <input asp-for="FullName" type="text" id="last-name" required>
+
+                <label for="last-name">user name</label>
+                <input asp-for="Username" type="text" id="last-name" required>
+
+                <label for="mail">Email</label>
+                <input asp-for="Email" type="email" id="mail" required>
+
+                <label for="password">Password</label>
+                <input asp-for="Password" type="password" id="password" required>
+
+                <label for="confirm-password">Confirm Password</label>
+                <input asp-for="ConfirmPassword" type="password" id="confirm-password" required>
+
+                <div class="show-pass">
+                    <input type="checkbox" id="show-pass" onclick="showPassword()"> <label for="show-pass">Show Password</label>
+                </div>
+
+                <button type="submit" class="create"> create a account</button>
+            </form>
+
+
+        </div>
+    </div>
+</section>

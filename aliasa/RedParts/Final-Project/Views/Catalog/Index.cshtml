@@ -1,0 +1,33 @@
+﻿@model CatalogVM
+
+<section id="catalog-page">
+    <div class="container">
+        <div class="all-catalog-page">
+            <div class="catalog-head">
+                <h2>Catalog</h2>
+            </div>
+            <div class="catalog-main">
+                <ul>
+
+                    @foreach (var item in Model.ProductCategories)
+                    {
+                        <li>
+                            <div class="catalog-box">
+                                <a asp-controller="Shop" asp-action="Index" asp-route-catId="@item.Id">
+                                    <div class="box-img">
+                                        <img src="~/Assets/Img/ProductCategory/@item.Image" alt="catalog">
+                                    </div>
+
+                                    <div class="box-text">
+                                        <h4>@Html.Raw(item.Name)</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+

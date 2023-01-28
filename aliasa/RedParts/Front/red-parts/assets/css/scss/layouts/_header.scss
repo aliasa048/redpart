@@ -1,0 +1,175 @@
+#header{
+    background-color: #333333;
+    padding: 15px 0px;
+    
+    .all-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        .left-header{
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            ul{
+                display: flex;
+                list-style: none;
+                li{
+                    margin-left: 15px;
+                    a{ 
+                        color: #fff;
+                        font-size: 16px;
+                        font-weight: 500;
+
+                    }
+                }
+            }
+        }
+        .mid-header{
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            a{
+                font-size: 40px;
+                color: #fff;
+                font-weight: 700;
+            }
+        }
+        .right-header{
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            align-items: center;
+            a{
+                display: inline-block;
+                margin-left: 30px;
+                i{
+                    color: #fff;
+                    font-size: 26px;
+                }
+            }
+            .ico-box{
+                position: relative;
+                span{
+                    background-color: red;
+                    padding: 2px 5px;
+                    border-radius: 50%;
+                    color: #fff;
+                    font-size: 8px;
+                    position: absolute;
+                    top: 0%;
+                    left: 90%;
+                }
+            }
+            .user-ico{
+              position: relative;
+              margin-left: 30px;
+                    i{
+                        color: #fff;
+                        font-size: 26px;
+                        cursor: pointer;
+                    } 
+                    ul{
+                        list-style: none;
+                        margin-top: 10px;
+                        z-index: 10;
+                        position: absolute;
+                        top: 100%;
+                        left: 0%;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: .5s ease;
+                        transform: translateY(20px);
+                        background-color: #fff;
+                        padding:20px 30px;
+                        border-radius: 3px;
+                        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                        li{
+                            margin-top: 10px;
+                            a{
+                                font-size: 18px;
+                                color: #333333;
+                                margin-left: 0;
+                            }
+                            &:first-child{
+                                margin-top: 0%;
+                            }
+                        }
+                    }
+                    &:hover{
+                        ul{
+                            opacity: 1;
+                            visibility: visible;
+                            transform: translateY(0);
+                        }
+                    }
+                
+            }
+
+            .menu-ico{
+                width: 30px;
+                height: 30px;
+                display: none;
+                min-width: max-content;
+                color: #fff;
+                margin-top: 10px;
+                position: relative;
+                
+                i{
+                    position: absolute;
+                    top: 0%;
+                    left: 0%;
+                    font-size: 26px;
+                }
+                .close-ico{
+                    display: none;
+                    &.active{
+                        display: inline-block;
+                    }
+                }
+                .open-ico{
+                    display: inline-block;
+                    &.active{
+                        display: none;
+                    }
+                }
+                
+               
+            }
+            .menu-header{
+                z-index: 15;
+                position: absolute;
+                top: 100%;
+                right: 0%;
+                display: none;
+                ul{
+                   
+                    list-style: none;
+                    background-color: #fff;
+                    width:200px;
+                    padding: 20px 10px;
+                    
+                    
+                    li{
+                        margin-left: 20px;
+                        margin-top: 20px;
+                        a{
+                            font-size: 14px;
+                            color: #333333;
+                        }
+                        &:first-child{
+                            margin-top: 0%;
+                        }
+                    }
+                }
+                
+            }
+           
+        }
+
+       
+        
+    }
+}

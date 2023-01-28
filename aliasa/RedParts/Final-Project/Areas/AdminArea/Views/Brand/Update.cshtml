@@ -1,0 +1,35 @@
+﻿@model BrandUpdateVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<div class="container">
+    <h3>Poster</h3>
+    <form asp-action="Update" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="my-4" for="exampleInputUsername1">Name</label>
+            <textarea class="form-control rounded-0" id="title-area" rows="3" asp-for="Name"></textarea>
+            <span class="text-danger my-1" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <input class="form-control mybutton" asp-for="Photo">
+            <span class="text-danger" asp-validation-for="Photo"></span>
+        </div>
+        <button type="submit" class="mybutton">Update</button>
+        <a class="mybutton" asp-controller="Brand" asp-action="Index">Back</a>
+    </form>
+
+</div>
+
+@section Scripts{
+    <script src="~/ckeditor/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace("title-area")
+    </script>
+    <script>
+        var title = CKEDITOR.instances['title-area'];
+        title.setData(@Html.Raw(Model.Name));
+    </script>
+}

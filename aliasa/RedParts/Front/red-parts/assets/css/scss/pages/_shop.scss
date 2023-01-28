@@ -1,0 +1,285 @@
+#shop-page{
+    margin-top: 20px;
+    padding-bottom: 70px;
+    .all-shop-page{
+        
+            .shop-head{
+                text-align: center;
+               
+                h2{
+                    font-size: 2.25rem;
+                    color: #000;
+                }
+            }
+
+            .shop-page-main{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 30px;
+                .left-shop-page{
+                    width: 25%;
+                    padding: 10px;
+                    height: fit-content;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    .bordered-head{
+                       
+                        padding: 15px 0px;
+                    }
+                    .left-main{
+                        
+                        .filter-box{
+                            margin-top: 15px;
+                            overflow: hidden;
+                            padding-bottom: 15px;
+                            border-bottom: 1px solid #ccc;
+                            .box-head{
+                                button{
+                                    display: flex;
+                                    width: 100%;
+                                    padding: 7px;
+
+                                justify-content: space-between;
+                                align-items: center;
+                                cursor: pointer;
+                                border: none;
+                                background-color: transparent;
+                                
+                                .up-ico{
+                                    transition: .5s ease;
+                                    font-size: 12px;
+                                    &.active{
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                               
+                                &:hover{
+                                    background-color: #f2f2f2;
+                                }
+                                h5{
+                                    font-size: 15px;
+                                }
+                                }
+                            }
+                            .box-main{
+                                display: inline-block;
+                                ul{
+                                    list-style: none;
+                                    li{
+                                        margin-top: 15px;
+                                        
+                                        a{
+                                            font-size: 12px;
+                                            color: #000;
+                                            transition: .5s ease;
+                                            
+                                        }
+                                        &:hover{
+                                            a{
+                                               color:#cb1818 ; 
+                                            }
+                                        }
+                                    }
+                                }
+                                &.active{
+                                   display: none;
+                                }
+
+                                form{
+                                    label{
+                                        font-size: 14px;
+                                        color: #000;
+                                        display: block;
+                                        margin-top: 15px;
+                                        margin-bottom: 10px;
+                                    }
+                                    input{
+                                        width: 200px;
+                                        border: 1px solid #ccc;
+                                        height: 35px;
+                                        padding: 7px;
+                                        background-color: transparent;
+                                    }
+                                }
+                            }
+                        }
+
+                        .brand-box,.made-box{
+                            .box-main{
+
+                                .check-box{
+                                    display: flex;
+                                    align-items: center;
+                                    input{
+                                        width: fit-content;
+                                    }
+                                    label{
+                                        margin: 0%;
+                                        margin-left: 5px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .filter-button{
+                            margin-top: 15px;
+                            padding-bottom: 10px;
+                            button{
+                                padding: 7px 10px;
+                                border: none;
+                                border-radius: 2px;
+                                font-weight: 500;
+                                cursor: pointer;
+                                transition: .5s ease;
+                            }
+                            .filter{
+                                color: #fff;
+                                background-color: #cb1818;
+                                &:hover{
+                                    background-color: #000;
+                                }
+                            }
+                            .reset{
+                                margin-left: 15px;
+                                background-color: #f0f0f0;
+                                &:hover{
+                                    background-color: #cbc9c9;
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+
+
+                .right-shop-page{
+                 width: 70%;
+                 .right-main{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    .shop-box {
+                        width: 22%;
+                       margin-left: 10px;
+                       margin-right: 10px;
+                        margin-top: 15px;
+                        font-size: 18px;
+                        padding: 10px;
+                        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;                    /* Center slide text vertically */
+                        
+                        .heart-ico{
+                            text-align: end;
+                            button{
+                                background: none;
+                                border: none;
+                                i{
+                                    color: #bbbbbb;
+                                    cursor: pointer;
+                                    transition: .5s ease;
+                                }
+                            }
+                            &:hover{
+                                button{
+                                   
+                                    i{
+                                        color: #262626;
+                                       
+                                    }
+                                }
+                            }
+                        }
+                       a{
+                        .box-img{
+                            width: 100%;
+                            img {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                              }
+                        }
+                       }
+                        .box-text{
+                            .product-title{
+                              a{
+                                font-size: 16px;
+                                color: #000;
+                              }
+                            }
+                            .product-rating {
+                                unicode-bidi: bidi-override;
+                                direction: rtl;
+                                margin-top: 20px;
+                                text-align: end;
+                               
+                            }
+                            .product-rating > span {
+                                display: inline-block;
+                                position: relative;
+                                width: 1.2em;
+                                cursor: pointer;
+                             }
+                            .product-rating > span:hover:before,
+                            .product-rating > span:hover ~ span:before {
+                                 content: "\2605";
+                                 position: absolute;
+                             }
+    
+                             .product-bottom{
+                                display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                .product-price{
+                                    display: flex;
+                                    align-items: center;
+                                    margin-top: 20px;
+                                    p{
+                                       font-size: 20px;
+                                       color: #000;
+                                    }
+                                    span{
+                                        font-size: 16px;
+                                        color: #999;
+                                        margin-left: 15px;
+                                        text-decoration: line-through;
+                                    }
+                                 }
+                                 .product-cart{
+                                    width: 35px;
+                                    height: 35px;
+                                    display: flex;
+                                    border-radius: 50%;
+                                    justify-content: center;
+                                    align-items: center;
+                                    transition: .5s ease;
+                                  a{
+                                    
+                                    i{
+                                        color: #bbbbbb;
+                                        transition: .5s ease;
+                                        font-size: 18px;
+                                    }
+                                    
+                                   }
+                                   &:hover{
+                                    color: #e52727;
+                                    background-color: #262626 !important;
+                                    a{
+                                        i{
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                                 }
+                             }
+                        }
+    
+                        
+                      }
+                 }
+                }
+            }
+        
+    }
+}

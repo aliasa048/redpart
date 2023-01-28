@@ -1,0 +1,142 @@
+﻿@model Paginate<BlogVM>
+
+<section id="blog-page">
+    <div class="container">
+        <div class="all-blog-page">
+            <div class="blog-head">
+                <h2>Lastest News</h2>
+            </div>
+
+            <div class="blog-main">
+                <div class="left-blog">
+                    <div class="about-box blog-box">
+                        <div class="box-head">
+                            <h3>About Blog</h3>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero.</p>
+                        <div class="bottom-ico">
+                            <div class="ico-box ins">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div class="ico-box tw">
+                                <i class="fa-brands fa-twitter"></i>
+                            </div>
+                            <div class="ico-box yt">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                            <div class="ico-box fb">
+                                <i class="fa-brands fa-facebook"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="categories-box blog-box">
+                        <div class="box-head">
+                            <h3>Categories</h3>
+                        </div>
+                        <ul>
+
+                            @foreach (var item in Model.Datas)
+                            {
+                                @foreach (var cat in item.Categories)
+                                {
+                                    <li><a asp-action="index" asp-route-catId="@cat.Id">@cat.Name</a></li>
+
+                                }
+                            }
+
+                        </ul>
+                    </div>
+
+
+                    <div class="latest-box blog-box">
+                        <div class="box-head">
+                            <h3>Latest Posts</h3>
+                        </div>
+
+                        <div class="latest-main">
+
+                            @foreach (var item in Model.Datas)
+                            {
+                                @foreach (var rec in item.RecentPost)
+                                {
+                                    <div class="post-box">
+                                        <div class="post-img">
+                                            <img src="~/Assets/Img/blog/@rec.Image" alt="">
+                                        </div>
+
+                                        <div class="post-text">
+                                            <a asp-controller="BlogDetail" asp-action="Index" asp-route-id="@rec.Id">@rec.Title</a>
+                                            <p>@rec.CreateDate.ToString("MMMM dd")</p>
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tags-box blog-box">
+                        <div class="box-head">
+                            <h3>Tags Cloud</h3>
+                        </div>
+
+                        <div class="tags-main">
+
+                            @foreach (var item in Model.Datas)
+                            {
+                                @foreach (var tag in item.Tags)
+                                {
+                                    <div class="tag-box">
+                                        <a href="blog.html">@tag.Name</a>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="right-blog">
+                    <div class="right-blog-main">
+                        @foreach (var item in Model.Datas)
+                        {
+
+                            @foreach (var blog in item.Blogs)
+                            {
+                                <div class="right-box">
+                                    <div class="img-box">
+                                        <img src="~/Assets/Img/blog/@blog.Image" alt="post">
+                                    </div>
+
+                                    <div class="box-text">
+                                        <a href="blogdetail.html">@blog.Title</a>
+                                        <span> By @blog.Creator on @blog.CreateDate.ToString("MMMM dd")</span>
+                                        <button type="button">Read more</button>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+
+                    </div>
+
+
+
+                    <div class="load-more">
+                        @for (int i = 1; i <= Model.TotalPage; i++)
+                        {
+                            <a class="@(Model.HasNext == true ? "":"disabled")" asp-action="Index" asp-route-page="@i">@i</a>
+                        }
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
